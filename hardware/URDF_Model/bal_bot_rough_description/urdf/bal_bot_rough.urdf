@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<robot name="bal_bot_rough" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find bal_bot_rough_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find bal_bot_rough_description)/urdf/bal_bot_rough.trans" />
+<xacro:include filename="$(find bal_bot_rough_description)/urdf/bal_bot_rough.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0 0.025 0.0925" rpy="0 0 0"/>
+    <mass value="5.6421874999999995"/>
+    <inertia ixx="0.007394" iyy="0.013565" izz="0.008522" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bal_bot_rough_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bal_bot_rough_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Right_wheel_1">
+  <inertial>
+    <origin xyz="0.012499999999999983 0.0 -6.938893903907228e-18" rpy="0 0 0"/>
+    <mass value="0.7552585088770711"/>
+    <inertia ixx="0.000463" iyy="0.000271" izz="0.000271" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0625 -0.025 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bal_bot_rough_description)/meshes/Right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0625 -0.025 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bal_bot_rough_description)/meshes/Right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Left_wheel_1">
+  <inertial>
+    <origin xyz="-0.012499999999999983 0.0 -6.938893903907228e-18" rpy="0 0 0"/>
+    <mass value="0.7552585088770711"/>
+    <inertia ixx="0.000463" iyy="0.000271" izz="0.000271" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0625 -0.025 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bal_bot_rough_description)/meshes/Left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0625 -0.025 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bal_bot_rough_description)/meshes/Left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.0625 0.025 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Right_wheel_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="-0.0625 0.025 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Left_wheel_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+</robot>
