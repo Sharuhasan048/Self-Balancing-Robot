@@ -7,13 +7,13 @@
   (lib_symbols
   )
 
-  (text "Self-Balancing Robot PCB - Draft Schematic (Pending Pin & Component Confirmation)" (exclude_from_sim no)
+  (text "Self-Balancing Robot PCB - Draft Schematic (ESP32 + MPU6050 + Dual Motor Driver)" (exclude_from_sim no)
     (at 25.4 25.4 0)
     (effects (font (size 2.54 2.54)))
     (uuid "22222222-3333-4444-5555-666666666666")
   )
 
-  (text "Extracted from Self_PID_Dir_deg_serial.ino: I2C (Wire) IMU + Dual Motor Driver (PWM/DIR/STBY/EN)" (exclude_from_sim no)
+  (text "Pins from Self_PID_Dir_deg_serial.ino: BTN=GPIO4, PWMA=14, AIN1=26, AIN2=25, PWMB=13, BIN1=27, BIN2=19, SDA=22, SCL=23" (exclude_from_sim no)
     (at 25.4 33.02 0)
     (effects (font (size 1.905 1.905)))
     (uuid "33333333-4444-5555-6666-777777777777")

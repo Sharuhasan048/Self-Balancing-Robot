@@ -84,6 +84,13 @@
   (net 5 "+3V3")
   (net 6 "SDA")
   (net 7 "SCL")
+  (net 8 "START_BTN")
+  (net 9 "PWMA")
+  (net 10 "AIN1")
+  (net 11 "AIN2")
+  (net 12 "PWMB")
+  (net 13 "BIN1")
+  (net 14 "BIN2")
 
   (gr_text "Self-Balancing Robot PCB - Starter Board" (at 100 100 0) (layer "F.SilkS")
     (effects (font (size 1.5 1.5) (thickness 0.2)))

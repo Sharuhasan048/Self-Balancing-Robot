@@ -1,7 +1,7 @@
 # KiCad PCB Design — Self-Balancing Robot
 
 Branch: `pcb-design`  
-Firmware reference: `firmware/01_Basic_Serial_Tuning/Self_PID_Dir_deg_serial`
+Firmware reference: `firmware/01_Basic_Serial_Tuning/Self_PID_Dir_deg_serial/Self_PID_Dir_deg_serial.ino`
 
 ## Repository Structure
 
@@ -17,15 +17,18 @@ hardware/
     └── manufacturing/
 ```
 
-## Firmware Signal & Hardware Notes
+## Extracted Pinout (`Self_PID_Dir_deg_serial.ino`)
 
-* Uses `Wire` (`SDA` / `SCL`) for IMU attitude sensing combined with `Kalman` filtering (`Kalman.cpp` / `Kalman.h`) and PID serial tuning.
-* Drives two motors with directional/PWM control and serial command telemetry/tuning.
-* Exact GPIO pin assignments, motor driver IC/module, IMU part/module, and power rail specs are being confirmed before populating final schematic symbols and PCB footprints.
+* **MCU / Bus:** ESP32 (`Wire.begin(SDA_PIN, SCL_PIN)` at `400000UL` / 400 kHz I2C, `Serial.begin(115200)`)
+* **IMU:** MPU6050 with DLPF + Kalman filter (`Kalman.cpp` / `Kalman.h`)
+* **Start Button:** `START_BUTTON = 4` (`INPUT_PULLUP`)
+* **Motor A (Left):** `PWMA = 14`, `AIN1 = 26`, `AIN2 = 25`
+* **Motor B (Right):** `PWMB = 13`, `BIN1 = 27`, `BIN2 = 19`
+* **I2C:** `SDA_PIN = 22`, `SCL_PIN = 23`
 
 ## Planned Next Steps
 
-1. Confirm MCU, IMU module/sensor, motor driver, exact GPIO pins, and power architecture.
-2. Add schematic symbols and footprints (or module headers) into `symbols/` and `footprints/`.
-3. Wire `self_balancing_bot.kicad_sch` and run ERC.
-4. Define board outline, mounting holes, and `MotorPower` vs. logic routing in `self_balancing_bot.kicad_pcb`, run DRC, and export manufacturing files into `manufacturing/`.
+1. Confirm MCU carrier/module vs. bare IC, motor driver IC/module (and whether `STBY` is tied high or on a GPIO), and IMU breakout vs. bare IC.
+2. Confirm power rail architecture (battery voltage, buck converter, reverse-polarity protection, connectors) and physical PCB outline/mounting holes.
+3. Add schematic symbols and footprints into `symbols/` and `footprints/`, wire `self_balancing_bot.kicad_sch`, and run ERC.
+4. Route `self_balancing_bot.kicad_pcb` with `MotorPower` net class separation, run DRC, and export manufacturing files into `manufacturing/`.
