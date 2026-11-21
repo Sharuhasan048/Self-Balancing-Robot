@@ -1,0 +1,25 @@
+(kicad_sch (version 20231120) (generator "eeschema") (generator_version "8.0")
+
+  (uuid "11111111-2222-3333-4444-555555555555")
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+  (text "Self-Balancing Robot PCB - Draft Schematic (Pending Pin & Component Confirmation)" (exclude_from_sim no)
+    (at 25.4 25.4 0)
+    (effects (font (size 2.54 2.54)))
+    (uuid "22222222-3333-4444-5555-666666666666")
+  )
+
+  (text "Extracted from Self_PID_Dir_deg_serial.ino: I2C (Wire) IMU + Dual Motor Driver (PWM/DIR/STBY/EN)" (exclude_from_sim no)
+    (at 25.4 33.02 0)
+    (effects (font (size 1.905 1.905)))
+    (uuid "33333333-4444-5555-6666-777777777777")
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
