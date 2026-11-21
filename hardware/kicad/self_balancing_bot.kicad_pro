@@ -4,9 +4,9 @@
       "defaults": {
         "board_outline_thickness": 0.15,
         "copper_line_width": 0.3,
-        "copper_text_size_h": 1.5,
-        "copper_text_size_v": 1.5,
-        "copper_text_thickness": 0.2,
+        "copper_text_size_h": 1.2,
+        "copper_text_size_v": 1.2,
+        "copper_text_thickness": 0.18,
         "max_error": 0.005,
         "pad_size_h": 1.7,
         "pad_size_v": 1.7,
